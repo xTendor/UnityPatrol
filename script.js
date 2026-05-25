@@ -39,7 +39,13 @@ img.onload = function () {
       description: "Das ist ein erster Testmarker.",
       x: imageWidth / 2,
       y: imageHeight / 2
-    }
+    },
+  {
+    name: "Beispiel-Ort 3",
+    description: "Marker können beliebig erweitert werden.",
+    x: 281,
+    y: 2289
+  }
   ];
 
   markers.forEach(marker => {
