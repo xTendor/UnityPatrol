@@ -6,8 +6,8 @@
 const imageUrl = "karte.png";
 
 // Originalgröße deines Bildes
-const imageWidth = 4240;
-const imageHeight = 6008;
+const imageWidth = 3870;
+const imageHeight = 3279;
 
 // Leaflet-Karte erstellen
 const map = L.map("map", {
