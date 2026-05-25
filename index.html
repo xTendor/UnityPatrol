@@ -1,53 +1,65 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Interaktive Karte</title>
 
+  <!-- Leaflet CSS -->
   <link
     rel="stylesheet"
-    href="https://unpkg.com/leaflet/dist/leaflet.css"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
 
   <style>
-    html, body {
+    html,
+    body {
       margin: 0;
+      padding: 0;
+      width: 100%;
       height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: #111;
     }
 
     #map {
-      width: 100%;
+      width: 100vw;
       height: 100vh;
       background: #111;
     }
+
+    .map-title {
+      position: absolute;
+      top: 12px;
+      left: 50px;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.75);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    .leaflet-popup-content {
+      font-size: 14px;
+      line-height: 1.4;
+    }
   </style>
 </head>
+
 <body>
+  <div class="map-title">Interaktive Karte</div>
+  <div id="map"></div>
 
-<div id="map"></div>
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+  </script>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-<script>
-  const map = L.map('map', {
-    crs: L.CRS.Simple,
-    minZoom: -3,
-    maxZoom: 3
-  });
-
-  const imageWidth = 3870;
-  const imageHeight = 3279;
-
-  const bounds = [[0, 0], [imageHeight, imageWidth]];
-
-  L.imageOverlay('karte.png', bounds).addTo(map);
-
-  map.fitBounds(bounds);
-
-  L.marker([3000, 2100])
-    .addTo(map)
-    .bindPopup('Beispiel-Marker');
-</script>
-
+  <!-- Eigene Karte -->
+  <script src="script.js"></script>
 </body>
 </html>
